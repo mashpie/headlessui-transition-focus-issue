@@ -56,8 +56,8 @@
     <b>menu button</b>
   </Dialog>
 
-  <Dialog ref="FormRef" :focusOn="InputRef">
-    <input type="text" ref="InputRef" />
+  <Dialog ref="FormRef">
+    <input type="text" />
   </Dialog>
 </template>
 
@@ -69,5 +69,4 @@ import Dialog from './Dialog.vue'
 
 const DialogRef = ref()
 const FormRef = ref()
-const InputRef = ref()
 </script>

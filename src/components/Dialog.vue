@@ -1,5 +1,5 @@
 <template>
-  <TransitionRoot :show="isOpen" as="template" @after-enter="onEntered">
+  <TransitionRoot :show="isOpen" as="template">
     <Dialog as="div" @close="closeModal" class="relative z-10">
       <TransitionChild
         as="template"
@@ -76,13 +76,6 @@ import {
   DialogTitle
 } from '@headlessui/vue'
 
-import { fixFocus } from '../shared/fixState'
-
-const props = defineProps({
-  focusOn: { type: Object },
-  fixFocus: { type: Boolean }
-})
-
 const isOpen = ref(false)
 
 const closeModal = () => {
@@ -93,16 +86,6 @@ const openModal = () => {
 }
 
 const OkButtonRef = ref(null)
-
-const onEntered = () => {
-  if (!fixFocus.value) return
-
-  if (props.focusOn) {
-    props.focusOn.focus()
-  } else {
-    OkButtonRef.value.focus()
-  }
-}
 
 defineExpose({
   closeModal,
